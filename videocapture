@@ -1,0 +1,23 @@
+
+import cv2
+
+cap = cv2.VideoCapture(0)
+
+while(True):
+    
+    ret, frame = cap.read()
+
+    font=cv2.FONT_HERSHEY_SIMPLEX
+    cv2.putText(frame,'no bro',(100,130),font,1,(255,255,255),2)
+    
+    red = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+
+    
+    cv2.imshow('frame',red)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# When everything done, release the capture
+cap.release()
+cv2.destroyAllWindows()
